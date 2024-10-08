@@ -1,3 +1,5 @@
+import TodoList from '@/components/TodoList'
+import { Separator } from '@/components/ui/separator'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
@@ -14,9 +16,18 @@ export default async function Home() {
     return redirect('/login')
   }
 
+  const { data: todos } = await supabase
+    .from('todos')
+    .select()
+    .order('inserted_at', { ascending: false })
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <h1>Home Page</h1>
-    </div>
+    <section className="p-3 pt-6 max-w-2xl w-full flex flex-col gap-4">
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        Todo&apos;s
+      </h1>
+      <Separator className="w-full" />
+      <TodoList todos={todos ?? []} />
+    </section>
   )
 }
