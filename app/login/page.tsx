@@ -17,7 +17,7 @@ const loginPage = async ({
   searchParams: { message: string }
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center h-[100dvh] px-4">
       <Card className="mx-auto max-w-sm">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold">Login</CardTitle>

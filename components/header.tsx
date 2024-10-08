@@ -19,15 +19,10 @@ export default async function Header() {
           </a>
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          {user !== null ? (
+          {user !== null && (
             <form action={signOut} className="flex items-center gap-2">
-              <p>{user.email}</p>
               <Button size="sm">Sign Out</Button>
             </form>
-          ) : (
-            <Button asChild size="sm">
-              <Link href="/login">Sign In</Link>
-            </Button>
           )}
         </div>
       </div>
