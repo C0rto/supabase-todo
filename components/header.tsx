@@ -1,7 +1,6 @@
 import { signOut } from '@/app/login/actions'
 import { Button } from '@/components/ui/button'
 import { createClient } from '@/utils/supabase/server'
-import Link from 'next/link'
 
 export default async function Header() {
   const supabase = await createClient()
